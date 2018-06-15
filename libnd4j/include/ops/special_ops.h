@@ -1018,7 +1018,7 @@ static void execSpecial(T *in, Nd4jLong *inShapeBuffer, T *out, Nd4jLong *outSha
             const Nd4jLong imStride3  = imStride[3];
 
             // initial zeroing of image content
-            const Nd4jLong imEWS = shape::elementWiseStride(imShapeBuffer);
+            const Nd4jLong imEWS = nd4j::math::nd4j_abs<Nd4jLong>(shape::elementWiseStride(imShapeBuffer));
             if( imEWS == 1)
                  memset(imBuff, 0, shape::length(imShapeBuffer) * sizeof(T));
             else 
